@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:minHeight="50dp"
+    android:orientation="horizontal"
+    android:weightSum="1"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:descendantFocusability="blocksDescendants">
+
+    <TextView
+        android:id="@+id/itemName"
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="0.25"
+        android:gravity="center"
+        android:text=""
+        android:textSize="@dimen/material_body_size" />
+
+    <TextView
+        android:id="@+id/itemUnitPrice"
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="0.25"
+        android:gravity="center"
+        android:text=""
+        android:textSize="@dimen/material_body_size"
+        />
+
+    <Spinner
+        android:id="@+id/itemQuantity"
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="0.25"
+        android:gravity="center"
+        android:text=""
+        android:spinnerMode="dialog" />
+
+    <TextView
+        android:id="@+id/itemTotalPrice"
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="0.25"
+        android:gravity="center"
+        android:text=""
+        android:textSize="@dimen/material_body_size" />
+
+</LinearLayout>

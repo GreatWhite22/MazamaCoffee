@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Mazama Coffee Co</string>
+    <string name="payment_title">Checkout</string>
+    <string name="payment_name">Name</string>
+    <string name="payment_card">Card Number</string>
+    <string name="payment_card_verify">CVC</string>
+    <string name="payment_expr">Expiration Date</string>
+    <string name="payment_total">Total: </string>
+    <string name="payment_monthHint">mm</string>
+    <string name="payment_yearHint">yyyy</string>
+    <string name="payment_pay">Pay Now</string>
+    <string name="shopping_cart">Order</string>
+    <string name="total_price">Total Price</string>
+    <string name="clear_cart">Clear Cart</string>
+    <string name="checkout">Checkout</string>
+    <string name="options_shots">Number of Shots</string>
+    <string name="options_temp">Hot?</string>
+    <string name="options_milk">Milk</string>
+    <string name="options_size">Size</string>
+    <string name="options_bakedGoods">Type</string>
+    <string name="options_flavors">Flavor</string>
+    <string name="options_whip">Whip?</string>
+    <string name="options_quantity">Quantity</string>
+    <string name="options_bottledDrinks">Type of Drink</string>
+    <string name="options_hot">Hot</string>
+    <string name="options_notHot">Iced</string>
+    <string name="options_hotness">Style</string>
+    <string name="options_addtionals">Additional Options</string>
+    <string name="options_subtotal">Subtotal: </string>
+    <string name="options_addToCart">Add to cart</string>
+    <string name="options_finishEdit">Edit Order</string>
+    <string name="options_syrups">Choose Syrups</string>
+    <string name="options_syrupEdit">Edit Syrups</string>
+    <string name="options_done">Done</string>
+</resources>

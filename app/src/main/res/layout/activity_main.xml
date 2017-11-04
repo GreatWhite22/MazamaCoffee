@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mazamacoffeeapp.MainActivity"
+    android:background="@drawable/coffee_mugs"
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/MazamaLogo"
+        android:src="@drawable/mazama_logo"
+        android:contentDescription="MazamaLogo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MENU"
+        android:id="@+id/menuButton"
+        android:scaleX="3"
+        android:scaleY="1.5"
+        android:onClick="getMenu"
+        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Us"
+        android:onClick="getContactInfo"
+        android:id="@+id/contactButton"
+        android:layout_marginTop="28dp"
+        android:layout_below="@+id/menuButton"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

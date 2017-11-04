@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:context="com.example.mazamacoffeeapp.ContactInfoActivity"
+        android:id="@+id/contactinfo">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/storeExterior"
+            android:textColor="@color/black"
+            android:src="@drawable/exteriorfront"
+            android:adjustViewBounds="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/black"
+            android:layout_below="@+id/storeExterior"
+            android:text="MAZAMA COFFEE CO."
+            android:id="@+id/MazamaTitle"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/black"
+            android:text="Store Location"
+            android:id="@+id/location"
+            android:layout_below="@+id/MazamaTitle"
+            android:layout_alignLeft="@+id/locationAddr"
+            android:layout_alignStart="@+id/locationAddr"
+            android:layout_marginTop="33dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"
+            android:text="301-B Mercer Street Dripping Springs Texas 78620"
+            android:id="@+id/locationAddr"
+            android:layout_below="@+id/location"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/black"
+            android:text="Hours"
+            android:id="@+id/hours"
+            android:layout_marginTop="33dp"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_below="@+id/locationAddr"
+            android:layout_alignLeft="@+id/hours1"
+            android:layout_alignStart="@+id/hours1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"
+            android:text="M-F 6:30a - 6p"
+            android:id="@+id/hours1"
+            android:layout_below="@+id/hours"
+            android:layout_alignLeft="@+id/locationAddr"
+            android:layout_alignStart="@+id/locationAddr" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"
+            android:text="Sa 8a - 5p"
+            android:id="@+id/hours2"
+            android:layout_below="@+id/hours1"
+            android:layout_alignLeft="@+id/hours1"
+            android:layout_alignStart="@+id/hours1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"
+            android:text="Su 8:30a - 1p"
+            android:id="@+id/hours3"
+            android:layout_below="@+id/hours2"
+            android:layout_alignLeft="@+id/hours2"
+            android:layout_alignStart="@+id/hours2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/black"
+            android:text="Phone"
+            android:id="@+id/phone"
+            android:layout_above="@+id/hours1"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"
+            android:text="(512) 200-6472"
+            android:id="@+id/phoneNum"
+            android:layout_below="@+id/phone"
+            android:layout_alignLeft="@+id/phone"
+            android:layout_alignStart="@+id/phone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/black"
+            android:text="Email"
+            android:id="@+id/email"
+            android:layout_alignTop="@+id/hours3"
+            android:layout_alignLeft="@+id/phoneNum"
+            android:layout_alignStart="@+id/phoneNum" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"
+            android:text="info@mazamacoffee.com"
+            android:id="@+id/emailAddr"
+            android:layout_below="@+id/email"
+            android:layout_alignLeft="@+id/email"
+            android:layout_alignStart="@+id/email" />
+
+
+    </RelativeLayout>
+</ScrollView>
