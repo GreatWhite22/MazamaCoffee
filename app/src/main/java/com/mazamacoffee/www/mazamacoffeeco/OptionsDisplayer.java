@@ -202,7 +202,7 @@ public class OptionsDisplayer {
     }
 
     /*
-     * Displays the subtotal on the DetailedOptions activity.
+     * Displays the subtotal on the DetailedOptionsActivity activity.
      * To only be used with the layout that has the TextView
      * with android:id subtotal. Undefined behavior otherwise
      * (will most likely cause null pointer exception).

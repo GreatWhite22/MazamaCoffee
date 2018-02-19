@@ -12,7 +12,6 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -20,6 +19,7 @@
         <activity android:name=".ContactInfoActivity"></activity>
         <activity android:name=".PaymentActivity"></activity>
         <activity android:name=".ShoppingCartActivity"></activity>
+        <activity android:name=".DetailedOptionsActivity"></activity>
         <meta-data
             android:name="com.google.android.gms.wallet.api.enabled"
             android:value="true" />

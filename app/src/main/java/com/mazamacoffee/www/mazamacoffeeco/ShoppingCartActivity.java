@@ -8,14 +8,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.mazamacoffee.www.mazamacoffeeco.Items.Item;
-
-import java.io.Serializable;
 import java.text.NumberFormat;
-import java.util.List;
 
 public class ShoppingCartActivity extends AppCompatActivity{
     private static final String TAG = "ShoppingCartActivity";
@@ -78,7 +73,7 @@ public class ShoppingCartActivity extends AppCompatActivity{
         cartItems.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                Intent updateItem = new Intent(ShoppingCartActivity.this, DetailedOptions.class);
+                Intent updateItem = new Intent(ShoppingCartActivity.this, DetailedOptionsActivity.class);
                 updateItem.putExtra("Item", position);
                 updateItem.putExtra("Purpose", "Edit");
                 startActivityForResult(updateItem, 0); // don't actually need request code

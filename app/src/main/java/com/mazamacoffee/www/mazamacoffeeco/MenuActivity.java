@@ -3,8 +3,6 @@ package com.mazamacoffee.www.mazamacoffeeco;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -100,11 +98,11 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
                 TextView textview = (TextView) viewClicked;
-                String itemString = "com.example.mazamacoffeeapp.Items."+textview.getText().toString().replaceAll("\\s+","");
+                String itemString = "com.mazamacoffee.www.mazamacoffeeco.Items."+textview.getText().toString().replaceAll("\\s+","");
                 try {
                     Class drinkClass = Class.forName(itemString);
                     Item selection = (Item) drinkClass.newInstance();
-                    Intent optionsPage = new Intent(MenuActivity.this, DetailedOptions.class);
+                    Intent optionsPage = new Intent(MenuActivity.this, DetailedOptionsActivity.class);
                     optionsPage.putExtra("Item", selection);
                     optionsPage.putExtra("Purpose", "AddToCart");
                     startActivity(optionsPage);
@@ -120,7 +118,7 @@ public class MenuActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
                 TextView textview = (TextView) viewClicked;
                 BakedGoods selection = new BakedGoods(textview.getText().toString());
-                Intent optionsPage = new Intent(MenuActivity.this, DetailedOptions.class);
+                Intent optionsPage = new Intent(MenuActivity.this, DetailedOptionsActivity.class);
                 optionsPage.putExtra("Item", selection);
                 optionsPage.putExtra("Purpose", "AddToCart");
                 startActivity(optionsPage);

@@ -11,7 +11,7 @@ import com.mazamacoffee.www.mazamacoffeeco.Items.*;
 
 import java.util.List;
 
-public class DetailedOptions extends AppCompatActivity {
+public class DetailedOptionsActivity extends AppCompatActivity {
 
     private String purpose;
     private Item theItem;

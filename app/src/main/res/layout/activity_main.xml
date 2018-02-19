@@ -1,42 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mazamacoffeeapp.MainActivity"
     android:background="@drawable/coffee_mugs"
-    >
+    tools:context="com.mazamacoffee.www.mazamacoffeeco.MainActivity">
 
-    <ImageView
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+        <ImageView
+            android:id="@+id/MazamaLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/my_toolbar"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="MazamaLogo"
+            android:src="@drawable/mazama_logo" />
+
+        <Button
+            android:id="@+id/menuButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:onClick="getMenu"
+            android:scaleX="3"
+            android:scaleY="1.5"
+            android:text="MENU" />
+
+        <Button
+            android:id="@+id/contactButton"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/menuButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="28dp"
+            android:onClick="getContactInfo"
+            android:text="Contact Us" />
+    </RelativeLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigation"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/MazamaLogo"
-        android:src="@drawable/mazama_logo"
-        android:contentDescription="MazamaLogo"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp" />
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/my_navigation_items" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MENU"
-        android:id="@+id/menuButton"
-        android:scaleX="3"
-        android:scaleY="1.5"
-        android:onClick="getMenu"
-        android:layout_centerVertical="true"
-        android:layout_centerInParent="true"/>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Contact Us"
-        android:onClick="getContactInfo"
-        android:id="@+id/contactButton"
-        android:layout_marginTop="28dp"
-        android:layout_below="@+id/menuButton"
-        android:layout_centerHorizontal="true" />
-
-</RelativeLayout>
+</android.support.v4.widget.DrawerLayout>

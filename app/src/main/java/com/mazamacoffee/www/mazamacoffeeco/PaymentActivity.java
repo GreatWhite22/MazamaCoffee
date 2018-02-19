@@ -23,6 +23,8 @@ import com.stripe.android.model.Card;
 import com.stripe.android.model.Token;
 import com.stripe.android.view.CardInputWidget;
 
+import static java.lang.Integer.parseInt;
+
 public class PaymentActivity extends AppCompatActivity {
 
     EditText cardName;
@@ -75,6 +77,11 @@ public class PaymentActivity extends AppCompatActivity {
                 card,
                 new TokenCallback() {
                     public void onSuccess(Token token) {
+                        String totalPriceString = purchaseTotal.getText().toString();
+                        totalPriceString = totalPriceString.substring(8); //TODO: This is f****ing ugly turn into method
+                        Double decimalPrice = Double.parseDouble(totalPriceString) * 100;
+                        Integer totalPrice = decimalPrice.intValue();
+
                         // Create an instance of CognitoCachingCredentialsProvider
                         CognitoCachingCredentialsProvider cognitoProvider = new CognitoCachingCredentialsProvider(
                                 getApplicationContext(),
@@ -91,7 +98,7 @@ public class PaymentActivity extends AppCompatActivity {
                         // LambdaDataBinder.
                         final LambdaInterface lambdaInterface = factory.build(LambdaInterface.class);
 
-                        RequestClass request = new RequestClass("1000",
+                        RequestClass request = new RequestClass(totalPrice.toString(),
                                 cardName.getText().toString(), token);
                         new AsyncTask<RequestClass, Void, ResponseClass>() {
                             @Override
