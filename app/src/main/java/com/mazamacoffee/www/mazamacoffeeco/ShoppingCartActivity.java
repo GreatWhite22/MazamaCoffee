@@ -73,7 +73,7 @@ public class ShoppingCartActivity extends AppCompatActivity{
         cartItems.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                Intent updateItem = new Intent(ShoppingCartActivity.this, DetailedOptionsActivity.class);
+                Intent updateItem = new Intent(ShoppingCartActivity.this, ItemOptionsActivity.class);
                 updateItem.putExtra("Item", position);
                 updateItem.putExtra("Purpose", "Edit");
                 startActivityForResult(updateItem, 0); // don't actually need request code

@@ -15,13 +15,10 @@ import java.util.Map;
  */
 
 public class ShoppingCart {
-    ArrayList<Item> items;
+    ArrayList<Item> items = new ArrayList<Item>();
     double total;
-
-
-    ShoppingCart(){
-        items = new ArrayList<Item>();
-    }
+    final static double TAX = .0825;
+    private static ShoppingCart cart = new ShoppingCart();
 
     public ArrayList<Item> getCartItems(){
         return items;
@@ -29,13 +26,10 @@ public class ShoppingCart {
 
     public double calculateTotal(){
         double subtotal = 0;
-        if(items.isEmpty()){
-            return subtotal;
-        }
         for(Item item: items){
             subtotal += item.getSubtotal();
         }
-        total = (subtotal + subtotal * .0825);
+        total = (subtotal + subtotal * TAX);
         return total;
     }
 
@@ -52,4 +46,7 @@ public class ShoppingCart {
         items.clear();
     }
 
+    public static ShoppingCart getCart() {
+        return cart;
+    }
 }

@@ -19,7 +19,6 @@ import java.util.Collections;
 import java.util.List;
 import java.text.NumberFormat;
 
-import static com.mazamacoffee.www.mazamacoffeeco.CartHelper.getCart;
 
 /**
  * Created by Connor Lewis on 10/30/2016.
@@ -28,11 +27,11 @@ import static com.mazamacoffee.www.mazamacoffeeco.CartHelper.getCart;
 public class CartItemAdapter extends BaseAdapter{
     private static final String TAG = "CartItemAdapter";
 
+    private QuantityListener quantityListener;
+
     public interface QuantityListener{
         public void quantityUpdate();
     }
-
-    private QuantityListener quantityListener;
 
     public void setQuantityListener(QuantityListener quantityListener){
         this.quantityListener = quantityListener;
@@ -91,7 +90,7 @@ public class CartItemAdapter extends BaseAdapter{
             totalItemPrice = viewHolder.itemTotalPrice;
         }
 
-        final ShoppingCart cart = CartHelper.getCart();
+        final ShoppingCart cart = ShoppingCart.getCart();
         final Item cartItem = getItem(position);
 
         name.setText(cartItem.getName());

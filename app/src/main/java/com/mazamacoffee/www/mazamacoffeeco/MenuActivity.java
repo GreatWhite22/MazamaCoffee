@@ -13,7 +13,25 @@ import com.mazamacoffee.www.mazamacoffeeco.Items.*;
 
 import com.mazamacoffee.www.mazamacoffeeco.Items.Item;
 
+import org.w3c.dom.Text;
+
 public class MenuActivity extends AppCompatActivity {
+
+    final static String [] drinkItems;
+    final static String[] foodItems;
+    ListView drinkList = (ListView) findViewById(R.id.drink_listview);
+    ListView foodList = (ListView) findViewById(R.id.food_listview);
+
+    static {
+        foodItems = new String[]{"Pumpkin Spice Bread", "Banana Chocolate Chip Bread",
+                "Lemon Blueberry Tea Cake", "Iced Goat Cookie", "Morning Glory Muffin",
+                "Lemon Blueberry Scone", "Peach Vanilla Scone"
+        };
+        drinkItems = new String[]{"Americano", "Black Eye", "Bottled Drinks", "Brewed Coffee",
+                "Cafe Au Lait", "Cappuccino", "Chai", "Cold Brew", "Cortado", "Espresso", "Frappe",
+                "Hot Chocolate", "Hot Tea", "Iced Tea", "Latte", "Mocha", "Smoothie", "Spiced Cider", "Steamer"
+        };
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,79 +39,41 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         TabHost host = (TabHost)findViewById(R.id.tabHost);
         host.setup();
+        createTabs(host);
+        populateListView();
+        registerclick();
+    }
 
-        //Tab 1
+    private void createTabs(TabHost host) {
         TabHost.TabSpec spec = host.newTabSpec("Tab One");
         spec.setContent(R.id.drink);
         spec.setIndicator("Drink");
         host.addTab(spec);
 
-        //Tab 2
         spec = host.newTabSpec("Tab Two");
         spec.setContent(R.id.food);
         spec.setIndicator("Food");
         host.addTab(spec);
-
-
-        populateListView();
-        registerclick();
     }
 
 
     private void populateListView() {
-        //create list of items
-            String[] drinkItems = {
-                    "Americano",
-                    "Black Eye",
-                    "Bottled Drinks",
-                    "Brewed Coffee",
-                    "Cafe Au Lait",
-                    "Cappuccino",
-                    "Chai",
-                    "Cold Brew",
-                    "Cortado",
-                    "Espresso",
-                    "Frappe",
-                    "Hot Chocolate",
-                    "Hot Tea",
-                    "Iced Tea",
-                    "Latte",
-                    "Mocha",
-                    "Smoothie",
-                    "Spiced Cider",
-                    "Steamer"
-            };
-            String[] foodItems = {
-                    "Pumpkin Spice Bread",
-                    "Banana Chocolate Chip Bread",
-                    "Lemon Blueberry Tea Cake",
-                    "Iced Goat Cookie",
-                    "Morning Glory Muffin",
-                    "Lemon Blueberry Scone",
-                    "Peach Vanilla Scone"
-            };
-
-        //build adapter
-        ArrayAdapter<String> dAdapter = new ArrayAdapter<String>(
-                this,       //context for activity
-                R.layout.menu_items, //layout to use
-                drinkItems       //items to be displayed
+        ArrayAdapter<String> drinkAdapter = new ArrayAdapter<String>(this, R.layout.menu_items,
+                drinkItems
         );
-        ArrayAdapter<String> fAdapter = new ArrayAdapter<String>(
-                this,
-                R.layout.menu_items,
+        ArrayAdapter<String> foodAdapter = new ArrayAdapter<String>(this,R.layout.menu_items,
                 foodItems
         );
-        //configure list view
-        ListView drinkList = (ListView) findViewById(R.id.drink_listview);
-        drinkList.setAdapter(dAdapter);
-        ListView foodList = (ListView) findViewById(R.id.food_listview);
-        foodList.setAdapter(fAdapter);
+        drinkList.setAdapter(drinkAdapter);
+        foodList.setAdapter(foodAdapter);
     }
 
     private void registerclick() {
-        ListView drinkList = (ListView) findViewById(R.id.drink_listview);
-        ListView foodList = (ListView) findViewById(R.id.food_listview);
+        setupDrinkListListener(drinkList);
+        setupFoodListListener(foodList);
+    }
+
+     private void setupDrinkListListener(ListView drinkList) {
         drinkList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
@@ -101,11 +81,11 @@ public class MenuActivity extends AppCompatActivity {
                 String itemString = "com.mazamacoffee.www.mazamacoffeeco.Items."+textview.getText().toString().replaceAll("\\s+","");
                 try {
                     Class drinkClass = Class.forName(itemString);
-                    Item selection = (Item) drinkClass.newInstance();
-                    Intent optionsPage = new Intent(MenuActivity.this, DetailedOptionsActivity.class);
-                    optionsPage.putExtra("Item", selection);
-                    optionsPage.putExtra("Purpose", "AddToCart");
-                    startActivity(optionsPage);
+                    Item drinkSelected = (Item) drinkClass.newInstance();
+                    Intent ItemOptionsActivity = new Intent(MenuActivity.this, ItemOptionsActivity.class);
+                    ItemOptionsActivity.putExtra("Item", drinkSelected);
+                    ItemOptionsActivity.putExtra("Purpose", "AddToCart");
+                    startActivity(ItemOptionsActivity);
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -113,21 +93,19 @@ public class MenuActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void setupFoodListListener(ListView foodList) {
         foodList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
                 TextView textview = (TextView) viewClicked;
-                BakedGoods selection = new BakedGoods(textview.getText().toString());
-                Intent optionsPage = new Intent(MenuActivity.this, DetailedOptionsActivity.class);
-                optionsPage.putExtra("Item", selection);
-                optionsPage.putExtra("Purpose", "AddToCart");
-                startActivity(optionsPage);
+                BakedGoods bakedGoodSelected = new BakedGoods(textview.getText().toString());
+                Intent itemOptionsActivity = new Intent(MenuActivity.this, ItemOptionsActivity.class);
+                itemOptionsActivity.putExtra("Item", bakedGoodSelected);
+                itemOptionsActivity.putExtra("Purpose", "AddToCart");
+                startActivity(itemOptionsActivity);
             }
         });
-    }
-
-    public void getShoppingCart (View view){
-        Intent cart = new Intent(this, ShoppingCartActivity.class);
-        startActivity(cart);
     }
 }

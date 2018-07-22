@@ -13,20 +13,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         ImageView mazamaLogo = (ImageView) findViewById(R.id.MazamaLogo);
         mazamaLogo.setImageResource(R.drawable.mazama_logo);
-
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.setNavigationIcon(R.drawable.ic_navigation_drawer);
         setSupportActionBar(myToolbar);
-
-        // instantiate shopping cart here so that the user
-        // can back out all the way out without fear of losing
-        // the cart.
-        ShoppingCart theCart = CartHelper.getCart();
-
-
     }
     /* called when Menu button is pressed */
     public void getMenu (View view){
